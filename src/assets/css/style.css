@@ -1,0 +1,172 @@
+body {
+    margin: 4rem 0;
+    background-color: #2b2440;
+}
+
+h5, p {
+    color: #fff;
+}
+
+.employer-container > p {
+    font-size: 1rem;
+ }
+
+.badge-pill {
+    padding-right: 0.6em;
+    padding-left: 0.6em;
+    border-radius: 10rem;
+    width: 179px;
+    height: 40px;
+    background: #7737a2;
+}
+
+.badge-pill >p {
+    padding-top: 10px;
+}
+
+.employee-filter, .employee-filter:hover, 
+.employee-filter:focus, 
+.employee-filter::placeholder {
+    background: #2b2440 !important;
+    color: #fff;
+}
+
+.add-employee {
+    width: 32px !important;
+    height: 34px;
+    float: left;
+}
+
+.dropdown {
+	position: relative;
+}
+
+.dropdown:after {
+	content: "";
+	position: absolute;
+    right: 50px;
+    top: 6px;
+    width: 10px;
+    height: 11px;
+	cursor: pointer;
+	transform: rotate(-45deg);
+	border-left: 2px solid #7737a2;
+	border-bottom: 2px solid #7737a2;
+	transition: 0.2s ease-in-out;
+}
+
+.dropdown .filterby {
+	position: absolute;
+	transform: translateX(-20px) translateY(5px);
+	width: 110px;
+	background-color: #7737a2;
+	padding: 20px;
+	border-radius: 10px;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+	transition: 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.dropdown:hover .filterby {
+	height: 220px;
+	visibility: visible;
+}
+
+.dropdown .filterby .drop-item {
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+
+.nav-bar_item {
+	list-style-type: none;
+	padding: 0px 0px;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+.employee-card {
+    display: flex;
+    background: grey;
+    height: 60px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+         border-radius: 15px;
+    margin-top: 50px;
+}
+
+.employer-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.employer-container > * {
+    margin: 18px;
+}
+
+.employer-container > .employee-counter {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1px solid #7737a2;
+    color: #7737a2
+}
+
+.employer-container > .employee-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    border-radius: 2.3rem !important;
+    background: #2b2440;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header .close {
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.employee-popuptitle {
+	float: left;
+	width: 100%;
+	padding: 13px 5px;
+}
+
+.employee-popuptitle h2 {
+	margin: 0;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: middle;
+    color: #fff;
+}
+
+label {
+    color: #7737a2;
+}
+
+.employee-remove {
+    color: #fff;
+    margin-top: 40px;
+}
+
+input[type="text"], input[type="text"]:focus, input[type="email"], input[type="email"]:focus {
+    background: #767070;
+    outline: #767070;
+    border: 1px solid #767070;
+    box-shadow: none;
+}
