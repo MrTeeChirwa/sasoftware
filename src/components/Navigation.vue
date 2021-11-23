@@ -19,13 +19,13 @@
               <a href="#">Filter by</a>
               <ul class="filterby">
                 <li class="drop-item">
-                  <a href="javascript:void(0);">Work 1</a>
+                  <a href="javascript:void(0);">First name</a>
                 </li>
                 <li class="drop-item">
-                  <a href="javascript:void(0);">Work 2</a>
+                  <a href="javascript:void(0);">Last name</a>
                 </li>
                 <li class="drop-item">
-                  <a href="javascript:void(0);">Work 3</a>
+                  <a href="javascript:void(0);">Contact number</a>
                 </li>
               </ul>
             </li>
@@ -166,13 +166,14 @@
                       </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" v-for="(input, i) in inputs" :key="i">
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="skills"> Skill </label>
                           <input
                             type="text"
                             name="skill"
+                            v-model="input.skill"
                             class="form-control"
                           />
                         </div>
@@ -185,6 +186,7 @@
                             type="text"
                             name="years_exprience"
                             class="form-control"
+                            v-model="input.yearsExprience"
                           />
                         </div>
                       </div>
@@ -198,6 +200,7 @@
                             type="text"
                             name="seniority_rating"
                             class="form-control"
+                            v-model="input.seniorityRating"
                           />
                         </div>
                       </div>
@@ -205,8 +208,26 @@
                       <div class="col-md-1">
                         <div class="form-group">
                           <div class="employee-remove">
-                            <i class="fa fa-trash fa-lg"></i>
+                            <a
+                              href="javascript:void(0);"
+                              v-on:click="addRemoveSkill(i)"
+                              ><i class="fa fa-trash fa-lg"></i
+                            ></a>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <button
+                            type="button"
+                            class="btn add-new-skill"
+                            v-on:click="addAddSkill()"
+                          >
+                            + Add new skill
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -233,7 +254,29 @@ export default {
     Date,
   },
   data() {
-    return {};
+    return {
+      inputs: [
+        {
+          skill: "",
+          yearsExprience: "",
+          seniorityRating: "",
+        },
+      ],
+    };
+  },
+  methods: {
+    addRemoveSkill(index) {
+      if (this.inputs.length > 1) {
+        this.inputs.splice(index, 1);
+      }
+    },
+    addAddSkill() {
+      this.inputs.push({
+        skill: "",
+        yearsExprience: "",
+        seniorityRating: "",
+      });
+    },
   },
 };
 </script>
