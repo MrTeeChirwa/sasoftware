@@ -18,9 +18,20 @@
                 <p>{{ employee.firstName }}</p>
                 <p>{{ employee.lastName }}</p>
                 <p>{{ employee.contactNumber }}</p>
+                <a href="javascript:void(0);"
+                  ><i
+                    class="fa fa-pen fa-lg edit-employee"
+                    data-toggle="modal"
+                    :data-target="'#editemployee-' + index"
+                  ></i
+                ></a>
               </div>
             </div>
           </div>
+          <EditEmployeeModal
+            :editEmployee="employee"
+            :employeeIndexPos="index"
+          />
         </div>
       </div>
     </div>
@@ -31,11 +42,13 @@
 <script>
 import { mapGetters } from "vuex";
 import AddEmployeeModal from "./AddEmployeeModal.vue";
+import EditEmployeeModal from "./EditEmployeeModal.vue";
 
 export default {
   name: "EmployerList",
   components: {
     AddEmployeeModal,
+    EditEmployeeModal,
   },
   mounted() {
     this.$root.$on("searchKeyword", (param) => {
