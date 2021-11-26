@@ -305,15 +305,7 @@ export default {
           .then((response) => {
             if (response.data.status) {
               this.validationErrors = [];
-              return response.data.data;
             }
-          })
-          .then((response) => {
-            this.addEmployee(response);
-            this.resetEmployeeDataObj();
-          })
-          .then(() => {
-            this.$emit("checkState");
           })
           .catch((error) => {
             this.validationErrors = error.response.data.errors;
