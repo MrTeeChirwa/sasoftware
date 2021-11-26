@@ -24,6 +24,7 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => 'required',
             'firstName' => 'required',
             'lastName'    => 'required',
             'contactNumber'    => 'required',
@@ -32,6 +33,10 @@ class EmployeeRequest extends FormRequest
             'city'    => 'required',
             'postalCode'    => 'required',
             'country'    => 'required',
+            'skills.*.skill' => 'required',
+            'skills.*.yearsExprience' => 'required',
+            'skills.*.seniorityRating' => 'required',
+
         ];
     }
 }

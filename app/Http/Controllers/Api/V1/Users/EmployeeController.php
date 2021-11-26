@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\Api\V1\Users;
 
+use App\Models\Employee;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\EmployeeRequest;
-use Illuminate\Http\Request;
+use App\Http\UseCases\Employee\CreateEmployeeUseCase;
 
 class EmployeeController extends Controller
 {
-    public function store(EmployeeRequest $request)
+    public function store(EmployeeRequest $request, CreateEmployeeUseCase $usecase, Employee $employee)
     {
-        $json = [];
-        $json['status'] = true;
-        $json['data'] = $request->all();
-
-        return $json;
+        return $usecase->handle($employee, $request->validated());
     }
 }
