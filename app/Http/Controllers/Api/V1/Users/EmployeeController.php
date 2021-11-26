@@ -10,7 +10,7 @@ use App\Http\UseCases\Employee\CreateEmployeeUseCase;
 
 class EmployeeController extends Controller
 {
-    public function store(EmployeeRequest $request, CreateEmployeeUseCase $usecase, Employee $employee)
+    public function storeOrUpdate(EmployeeRequest $request, CreateEmployeeUseCase $usecase, Employee $employee)
     {
         return $usecase->handle($employee, $request->validated());
     }

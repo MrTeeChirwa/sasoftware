@@ -9,22 +9,40 @@ class Employee extends Model
 {
     use HasFactory;
 
-    public function store($data)
-    {
-        $this->employeeID = $data['id'];
-        $this->firstName = $data['firstName'];
-        $this->lastName = $data['lastName'];
-        $this->contactNumber = $data['contactNumber'];
-        $this->emailAddress = $data['emailAddress'];
-        $this->streetAddress = $data['streetAddress'];
-        $this->city = $data['city'];
-        $this->postalCode = $data['postalCode'];
-        $this->country = $data['country'];
+    protected $fillable = [
+        'employeeID',
+        'firstName',
+        'lastName',
+        'contactNumber',
+        'emailAddress',
+        'streetAddress',
+        'city',
+        'postalCode',
+        'country',
+        'skills',
+    ];
 
-        if (!empty($data['skills'])) {
-            $this->skills = serialize($data['skills']);
+    protected $data = [];
+
+    public function storeOrUpdate($employee)
+    {
+        $this->data['employeeID'] = $employee['id'];
+        $this->data['firstName'] = $employee['firstName'];
+        $this->data['lastName'] = $employee['lastName'];
+        $this->data['contactNumber'] = $employee['contactNumber'];
+        $this->data['emailAddress'] = $employee['emailAddress'];
+        $this->data['streetAddress'] = $employee['streetAddress'];
+        $this->data['city'] = $employee['city'];
+        $this->data['postalCode'] = $employee['postalCode'];
+        $this->data['country'] = $employee['country'];
+
+        if (!empty($employee['skills'])) {
+            $this->data['skills'] = serialize($employee['skills']);
         }
 
-        return $this->save();
+        return $this->updateOrCreate(
+            ['employeeID' =>  $employee['id'], 'emailAddress' => $employee['emailAddress']],
+            $this->data,
+        );
     }
 }

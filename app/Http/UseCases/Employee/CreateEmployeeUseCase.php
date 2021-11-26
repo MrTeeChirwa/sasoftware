@@ -8,7 +8,7 @@ class CreateEmployeeUseCase
 {
     public function handle(Employee $employee, array $data)
     {
-        $status = $employee->store($data);
+        $status = $employee->storeOrUpdate($data);
 
         $json = [];
 

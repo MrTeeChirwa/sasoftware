@@ -17,5 +17,5 @@ use App\Http\Controllers\Api\V1\Users\EmployeeController;
 
 // Unprotected, Public APIs
 
-Route::post('employee/store', [EmployeeController::class, 'store'])
+Route::post('employee/storeOrUpdate', [EmployeeController::class, 'storeOrUpdate'])
     ->name('employee.store');
