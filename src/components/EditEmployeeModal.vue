@@ -15,14 +15,13 @@
               class="close"
               data-dismiss="modal"
               aria-label="Close"
-              v-on:click="resetForm()"
             >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
         </div>
         <div class="modal-body">
-          <form id="add-employee-form">
+          <form id="edit-employee-form">
             <fieldset>
               <div class="row">
                 <div class="col-md-4">
@@ -31,7 +30,7 @@
                     <input
                       type="text"
                       name="first_name"
-                      v-model="employee.firstName"
+                      v-model="editEmployee.firstName"
                       :class="
                         validationErrors.firstName
                           ? 'form-control is-invalid'
@@ -47,7 +46,7 @@
                     <input
                       type="text"
                       name="last_name"
-                      v-model="employee.lastName"
+                      v-model="editEmployee.lastName"
                       :class="
                         validationErrors.lastName
                           ? 'form-control is-invalid'
@@ -65,7 +64,7 @@
                     <input
                       type="tel"
                       name="contact_number"
-                      v-model="employee.contactNumber"
+                      v-model="editEmployee.contactNumber"
                       :class="
                         validationErrors.contactNumber
                           ? 'form-control is-invalid'
@@ -83,7 +82,7 @@
                     <input
                       type="email"
                       name="milestone_price"
-                      v-model="employee.emailAddress"
+                      v-model="editEmployee.emailAddress"
                       :class="
                         validationErrors.emailAddress
                           ? 'form-control is-invalid'
@@ -99,7 +98,7 @@
                   <div class="form-group">
                     <label for="dob">Date of birth</label>
                     <div class="input-group">
-                      <date-pick v-model="employee.date"> </date-pick>
+                      <date-pick v-model="editEmployee.date"> </date-pick>
                       <div class="input-group-append">
                         <button class="btn btn-secondary" type="button">
                           <i class="fa fa-calendar"></i>
@@ -117,7 +116,7 @@
                     <input
                       type="text"
                       name="street_address"
-                      v-model="employee.streetAddress"
+                      v-model="editEmployee.streetAddress"
                       :class="
                         validationErrors.streetAddress
                           ? 'form-control is-invalid'
@@ -135,7 +134,7 @@
                     <input
                       type="text"
                       name="city"
-                      v-model="employee.city"
+                      v-model="editEmployee.city"
                       :class="
                         validationErrors.city
                           ? 'form-control is-invalid'
@@ -151,7 +150,7 @@
                     <input
                       type="text"
                       name="postal_code"
-                      v-model="employee.postalCode"
+                      v-model="editEmployee.postalCode"
                       :class="
                         validationErrors.postalCode
                           ? 'form-control is-invalid'
@@ -167,7 +166,7 @@
                     <input
                       type="text"
                       name="country"
-                      v-model="employee.country"
+                      v-model="editEmployee.country"
                       :class="
                         validationErrors.country
                           ? 'form-control is-invalid'
@@ -178,7 +177,11 @@
                 </div>
               </div>
 
-              <div class="row" v-for="(input, i) in employee.skills" :key="i">
+              <div
+                class="row"
+                v-for="(input, i) in editEmployee.skills"
+                :key="i"
+              >
                 <div class="col-md-3">
                   <div class="form-group">
                     <label for="skills"> Skill </label>
@@ -277,9 +280,6 @@ export default {
   components: {
     DatePick,
   },
-  created() {
-    this.employee = this.editEmployee;
-  },
   data() {
     return {
       employee: [],
@@ -352,10 +352,6 @@ export default {
         return this.date;
       }
     },
-    resetForm() {
-      document.getElementById("add-employee-form").reset();
-    },
-
     resetEmployeeDataObj() {
       this.employee.date = this.getEmployeeDate();
       this.employee.id = null;

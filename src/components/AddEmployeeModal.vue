@@ -10,7 +10,7 @@
               class="close"
               data-dismiss="modal"
               aria-label="Close"
-              v-on:click="resetForm()"
+              v-on:click="resetAddForm()"
             >
               <span aria-hidden="true">&times;</span>
             </button>
@@ -329,7 +329,6 @@ export default {
             this.employee
           )
           .then((response) => {
-            console.log(response.data);
             if (response.data.status) {
               this.validationErrors = [];
               return response.data.data;
@@ -355,7 +354,7 @@ export default {
         return this.date;
       }
     },
-    resetForm() {
+    resetAddForm() {
       document.getElementById("add-employee-form").reset();
     },
 
