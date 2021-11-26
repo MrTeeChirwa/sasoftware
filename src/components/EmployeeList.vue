@@ -51,6 +51,8 @@ export default {
     EditEmployeeModal,
   },
   mounted() {
+    this.employees = this.getEmployees;
+
     this.$root.$on("searchKeyword", (param) => {
       if (param.filterType == "yearofbirth" && param.searchKeyword !== null) {
         this.employee = this.getEmployees.filter((employee) => {

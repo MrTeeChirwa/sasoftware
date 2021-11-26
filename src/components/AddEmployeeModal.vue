@@ -326,6 +326,7 @@ export default {
         axios
           .post(" http://localhost:8000/api/employee/store", this.employee)
           .then((response) => {
+            console.log(response.data);
             if (response.data.status) {
               this.validationErrors = [];
               return response.data.data;

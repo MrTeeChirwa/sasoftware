@@ -278,12 +278,11 @@ export default {
     DatePick,
   },
   created() {
-    console.log(this.editEmployee);
     this.employee = this.editEmployee;
   },
   data() {
     return {
-      employee: null,
+      employee: [],
       employees: [],
       validationErrors: [],
     };
