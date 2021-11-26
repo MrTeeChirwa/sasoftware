@@ -237,7 +237,7 @@
                     <button
                       type="button"
                       class="btn add-new-skill"
-                      v-on:click="addSkill()"
+                      v-on:click="editModalAddSkill()"
                     >
                       + Add new skill
                     </button>

@@ -28,6 +28,13 @@ export var SassData = {
               seniorityRating: "",
             });
           },
+          editModalAddSkill() {
+            this.editEmployee.skills.push({
+                skill: "",
+                yearsExprience: "",
+                seniorityRating: "",
+              });
+          },
           getEmployeeDate: function () {
             if (this.date) {
               return this.date;
