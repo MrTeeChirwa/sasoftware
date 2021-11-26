@@ -301,11 +301,15 @@ export default {
         this.employee.id = this.generateId();
 
         axios
-          .post(this.ApiUrl + "/employee/storeOrUpdate", this.employee)
+          .post(this.ApiUrl + "/employee/storeOrUpdate", this.editEmployee)
           .then((response) => {
             if (response.data.status) {
               this.validationErrors = [];
+              return response.data.data;
             }
+          })
+          .then(() => {
+            this.showSuccess("Employee has successfuly been updated");
           })
           .catch((error) => {
             this.validationErrors = error.response.data.errors;

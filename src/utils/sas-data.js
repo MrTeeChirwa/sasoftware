@@ -21,6 +21,9 @@ export var SassData = {
           showError(error) {
             return this.$toastr.error(error, "", "");
           },
+          showSuccess(message) {
+            return this.$toastr.success(message, "", "");
+          },
           addSkill() {
             this.employee.skills.push({
               skill: "",
