@@ -45,7 +45,7 @@ class Employee extends Model
         }
 
         return $this->updateOrCreate(
-            ['employeeID' =>  $employee['employeeID'], 'emailAddress' => $employee['emailAddress']],
+            ['employeeID' =>  $employee['employeeID']],
             $this->data,
         );
     }
