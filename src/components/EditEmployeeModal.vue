@@ -223,7 +223,7 @@
                     <div class="employee-remove">
                       <a
                         href="javascript:void(0);"
-                        v-on:click="addRemoveSkill(i)"
+                        v-on:click="editRemoveSkill(i)"
                         ><i class="fa fa-trash fa-lg"></i
                       ></a>
                     </div>
@@ -291,9 +291,9 @@ export default {
   },
   methods: {
     ...mapActions(["addEmployee"]),
-    addRemoveSkill(index) {
-      if (this.employee.skills.length > 1) {
-        this.employee.skills.splice(index, 1);
+    editRemoveSkill(index) {
+      if (this.editEmployee.skills.length > 1) {
+        this.editEmployee.skills.splice(index, 1);
       }
     },
     saveAddEmployee() {
