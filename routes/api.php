@@ -19,3 +19,4 @@ use App\Http\Controllers\Api\V1\Users\EmployeeController;
 
 Route::post('employee/storeOrUpdate', [EmployeeController::class, 'storeOrUpdate'])
     ->name('employee.store');
+Route::get('employee/employees', [EmployeeController::class, 'employees']);

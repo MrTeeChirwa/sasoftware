@@ -48,4 +48,12 @@ class Employee extends Model
             $this->data,
         );
     }
+
+    public function getEmployees()
+    {
+        return $this->get()->map(function ($employees) {
+            $employees->skills = unserialize($employees->skills);
+            return $employees;
+        });
+    }
 }
