@@ -25,10 +25,11 @@ class Employee extends Model
     ];
 
     protected $data = [];
+    protected $hidden = ['id'];
 
     public function storeOrUpdate($employee)
     {
-        $this->data['employeeID'] = $employee['id'];
+        $this->data['employeeID'] = $employee['employeeID'];
         $this->data['firstName'] = $employee['firstName'];
         $this->data['lastName'] = $employee['lastName'];
         $this->data['contactNumber'] = $employee['contactNumber'];
@@ -44,7 +45,7 @@ class Employee extends Model
         }
 
         return $this->updateOrCreate(
-            ['employeeID' =>  $employee['id'], 'emailAddress' => $employee['emailAddress']],
+            ['employeeID' =>  $employee['employeeID'], 'emailAddress' => $employee['emailAddress']],
             $this->data,
         );
     }

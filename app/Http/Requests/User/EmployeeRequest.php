@@ -24,7 +24,7 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'required',
+            'employeeID' => 'required',
             'firstName' => 'required',
             'lastName'    => 'required',
             'contactNumber'    => 'required',
