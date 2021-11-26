@@ -43,14 +43,16 @@
 import { mapGetters } from "vuex";
 import AddEmployeeModal from "./AddEmployeeModal.vue";
 import EditEmployeeModal from "./EditEmployeeModal.vue";
-
+import { SassData } from "../utils/sas-data.js";
 export default {
   name: "EmployerList",
+  mixins: [SassData],
   components: {
     AddEmployeeModal,
     EditEmployeeModal,
   },
   mounted() {
+    this.fetchDbEmployees();
     this.employees = this.getEmployees;
 
     this.$root.$on("searchKeyword", (param) => {

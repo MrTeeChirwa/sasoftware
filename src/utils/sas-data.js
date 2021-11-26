@@ -1,3 +1,6 @@
+import axios from "axios";
+import { mapActions } from "vuex";
+
 export var SassData = {
     data() {
         return {
@@ -5,6 +8,7 @@ export var SassData = {
         }
     },
     methods: {
+        ...mapActions(["addEmployee"]),
         generateId() {
             var randChars = "";
             var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -61,6 +65,19 @@ export var SassData = {
                 seniorityRating: "",
               },
             ];
+          },
+
+          fetchDbEmployees() {
+            axios
+              .get(this.ApiUrl + "/employee/employees")
+              .then((response) => {
+                  return response.data;
+              })
+              .then((employees) => {
+                employees.map(employee => {
+                    this.addEmployee(employee);
+                })
+              });
           },
     }
 }
