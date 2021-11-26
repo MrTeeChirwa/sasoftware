@@ -299,25 +299,23 @@ export default {
       }
     },
     saveAddEmployee() {
-      if (this.employee.id != this.generateId()) {
-        axios
-          .post(this.ApiUrl + "/employee/storeOrUpdate", this.editEmployee)
-          .then((response) => {
-            if (response.data.status) {
-              this.validationErrors = [];
-              return response.data.data;
-            }
-          })
-          .then(() => {
-            this.showSuccess("Employee has successfuly been updated");
-          })
-          .catch((error) => {
-            this.validationErrors = error.response.data.errors;
-            if (Object.entries(error.response.data.errors).length > 0) {
-              this.showError(error.response.data.message);
-            }
-          });
-      }
+      axios
+        .post(this.ApiUrl + "/employee/storeOrUpdate", this.editEmployee)
+        .then((response) => {
+          if (response.data.status) {
+            this.validationErrors = [];
+            return response.data.data;
+          }
+        })
+        .then(() => {
+          this.showSuccess("Employee has successfuly been updated");
+        })
+        .catch((error) => {
+          this.validationErrors = error.response.data.errors;
+          if (Object.entries(error.response.data.errors).length > 0) {
+            this.showError(error.response.data.message);
+          }
+        });
     },
   },
 };

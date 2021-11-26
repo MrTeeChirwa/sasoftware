@@ -270,7 +270,7 @@ export default {
     return {
       employee: {
         date: this.getEmployeeDate(),
-        id: null,
+        employeeID: null,
         firstName: null,
         lastName: null,
         contactNumber: null,
@@ -299,14 +299,11 @@ export default {
       }
     },
     saveAddEmployee() {
-      if (this.employee.id != this.generateId()) {
-        this.employee.id = this.generateId();
+      if (this.employee.employeeID != this.generateId()) {
+        this.employee.employeeID = this.generateId();
 
         axios
-          .post(
-            this.ApiUrl + "/employee/storeOrUpdate",
-            this.employee
-          )
+          .post(this.ApiUrl + "/employee/storeOrUpdate", this.employee)
           .then((response) => {
             if (response.data.status) {
               this.validationErrors = [];
