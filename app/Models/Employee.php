@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employee extends Model
 {
@@ -20,6 +21,7 @@ class Employee extends Model
         'postalCode',
         'country',
         'skills',
+        'date',
     ];
 
     protected $data = [];
@@ -35,6 +37,7 @@ class Employee extends Model
         $this->data['city'] = $employee['city'];
         $this->data['postalCode'] = $employee['postalCode'];
         $this->data['country'] = $employee['country'];
+        $this->data['date'] = Carbon::parse($employee['date'])->toDateTimeString();
 
         if (!empty($employee['skills'])) {
             $this->data['skills'] = serialize($employee['skills']);

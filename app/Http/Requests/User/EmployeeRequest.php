@@ -30,6 +30,7 @@ class EmployeeRequest extends FormRequest
             'contactNumber'    => 'required',
             'emailAddress'    => 'required',
             'streetAddress'    => 'required',
+            'date' => 'required',
             'city'    => 'required',
             'postalCode'    => 'required',
             'country'    => 'required',

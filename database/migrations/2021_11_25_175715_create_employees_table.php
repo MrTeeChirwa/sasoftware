@@ -26,6 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('postalCode');
             $table->string('country');
             $table->text('skills');
+            $table->string('date');
 
             $table->timestamps();
         });
