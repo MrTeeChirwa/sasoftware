@@ -253,7 +253,9 @@
             ><a href="#" v-on:click="saveAddEmployee()">
               <i class="fa fa-plus-circle add-employee"> </i>
             </a>
-            <p class="text-center add-employee-button">Save And Add Employee</p>
+            <p class="text-center add-employee-button">
+              Save And Update Employee
+            </p>
           </span>
         </div>
       </div>
@@ -298,8 +300,6 @@ export default {
     },
     saveAddEmployee() {
       if (this.employee.id != this.generateId()) {
-        this.employee.id = this.generateId();
-
         axios
           .post(this.ApiUrl + "/employee/storeOrUpdate", this.editEmployee)
           .then((response) => {
