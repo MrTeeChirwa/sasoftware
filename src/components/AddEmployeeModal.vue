@@ -324,7 +324,10 @@ export default {
         this.employee.id = this.generateId();
 
         axios
-          .post(" http://localhost:8000/api/employee/store", this.employee)
+          .post(
+            " http://localhost:8000/api/employee/storeOrUpdate",
+            this.employee
+          )
           .then((response) => {
             console.log(response.data);
             if (response.data.status) {

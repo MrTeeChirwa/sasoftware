@@ -1,24 +1,27 @@
 # frontend
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Feature and functionality
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+To use the search filter first:
+1: Type text in the input field or leave input field empty to populdate default data.
+2: Select the type of filter.
+```
