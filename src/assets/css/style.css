@@ -170,6 +170,7 @@ label {
 
 input[type="text"], input[type="text"]:focus, 
 input[type="email"], input[type="email"]:focus,
+input[type="number"], input[type="number"]:focus,
 input[type="tel"], input[type="tel"]:focus {
     background: #767070;
     outline: #767070;

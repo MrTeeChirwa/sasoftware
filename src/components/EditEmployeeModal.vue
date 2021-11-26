@@ -198,7 +198,7 @@
                   <div class="form-group">
                     <label for="yrs_exprience"> Years of exprience</label>
                     <input
-                      type="text"
+                      type="number"
                       name="years_exprience"
                       class="form-control"
                       v-model="input.yearsExprience"
@@ -210,7 +210,7 @@
                   <div class="form-group">
                     <label for="seniority_rating"> Seniority rating</label>
                     <input
-                      type="text"
+                      type="number"
                       name="seniority_rating"
                       class="form-control"
                       v-model="input.seniorityRating"
