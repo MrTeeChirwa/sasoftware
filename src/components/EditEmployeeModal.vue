@@ -266,9 +266,11 @@ import DatePick from "vue-date-pick";
 import "vue-date-pick/dist/vueDatePick.css";
 import { mapActions } from "vuex";
 import axios from "axios";
+import { SassData } from "../utils/sas-data.js";
 
 export default {
   name: "EditEmployeeModal",
+  mixins: [SassData],
   props: {
     editEmployee: {
       type: Object,
@@ -299,10 +301,7 @@ export default {
         this.employee.id = this.generateId();
 
         axios
-          .post(
-            this.ApiUrl + "/employee/storeOrUpdate",
-            this.employee
-          )
+          .post(this.ApiUrl + "/employee/storeOrUpdate", this.employee)
           .then((response) => {
             if (response.data.status) {
               this.validationErrors = [];
